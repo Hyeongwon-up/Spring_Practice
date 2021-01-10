@@ -11,7 +11,7 @@ class MemberServiceTest {
 
 
 
-    MemberService memberService = new MemberService();
+    MemberService memberService;
 
 
     @Test

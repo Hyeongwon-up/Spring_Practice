@@ -1,9 +1,11 @@
 package Hyeongwon.Spring_Practice.repository;
 
 import Hyeongwon.Spring_Practice.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemoryMemberRepsitory implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();
