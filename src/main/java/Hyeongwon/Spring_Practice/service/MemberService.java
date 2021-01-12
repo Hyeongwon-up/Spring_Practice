@@ -2,7 +2,7 @@ package Hyeongwon.Spring_Practice.service;
 
 import Hyeongwon.Spring_Practice.domain.Member;
 import Hyeongwon.Spring_Practice.repository.MemberRepository;
-import Hyeongwon.Spring_Practice.repository.MemoryMemberRepsitory;
+import Hyeongwon.Spring_Practice.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
