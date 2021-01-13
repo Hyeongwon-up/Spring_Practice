@@ -4,6 +4,7 @@ package Hyeongwon.Spring_Practice;
 import Hyeongwon.Spring_Practice.repository.JdbcMemberRepository;
 import Hyeongwon.Spring_Practice.repository.MemberRepository;
 
+import Hyeongwon.Spring_Practice.service.JdbcTemplateMemberRepository;
 import Hyeongwon.Spring_Practice.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -32,7 +33,7 @@ public class SpringConfig {
     public MemberRepository memberRepository() {
 
 
-        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
         //return new MemoryMemberRepsitory();
     }
 
