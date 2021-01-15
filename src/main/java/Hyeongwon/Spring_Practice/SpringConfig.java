@@ -1,14 +1,12 @@
 package Hyeongwon.Spring_Practice;
 
 
-import Hyeongwon.Spring_Practice.repository.JdbcMemberRepository;
+import Hyeongwon.Spring_Practice.aop.TimeTraceAop;
 import Hyeongwon.Spring_Practice.repository.JpaMemberRepository;
 import Hyeongwon.Spring_Practice.repository.MemberRepository;
 
-import Hyeongwon.Spring_Practice.service.JdbcTemplateMemberRepository;
 import Hyeongwon.Spring_Practice.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,18 +16,33 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private EntityManager em;
+   // private final EntityManager em;
+   // private final DataSource dataSource;
+
+    private final MemberRepository memberRepository;
+
+    public SpringConfig(MemberRepository memberRepository) { this.memberRepository = memberRepository;
+    }
+
+
+    /*
 
     @Autowired
-    public SpringConfig(EntityManager em) {
+    public SpringConfig(EntityManager em, DataSource dataSource) {
         this.em = em;
+        this.dataSource = dataSource;
     }
+
+    */
+
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
 
     }
+
+    /*
     @Bean
     public MemberRepository memberRepository() {
 
@@ -39,5 +52,16 @@ public class SpringConfig {
          // return new JdbcTemplateMemberRepository(dataSource);
         return new JpaMemberRepository(em);
     }
+
+
+
+    @Bean
+    public TimeTraceAop timeTraceAop() {
+        return new TimeTraceAop();
+    }
+
+    */
+
+
 
 }
